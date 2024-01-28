@@ -18,7 +18,7 @@ if path == "left":
         elif door=="rlue":
             print("Eaten by beasts.Game Over")
         else:
-            print("Game Over")
+            print("Game Over!")
             
     else:
         print("Attacked by trout.Game Over")
