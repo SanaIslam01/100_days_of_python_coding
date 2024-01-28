@@ -12,4 +12,4 @@ print("now the temperature is in foran",conversion)
 h=float(input("enter your height"))
 w=float(input("enter your weight"))
 bmi=w/h**2
-print("your bmi is now hello",bmi)
+print("your bmi is now",bmi)
