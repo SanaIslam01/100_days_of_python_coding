@@ -39,5 +39,5 @@ generated_password = ''
 for _ in range(password_length):
     generated_password += random.choice(all_characters)
 
-print("Generated Password:", generated_password)
+print("Generated Password:-", generated_password)
 
