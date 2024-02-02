@@ -239,4 +239,4 @@ for i in range(len(rand_word)):
         if n==rand_word:
             print("congratulations you complete the word!",''.join(word_blanks))
 else:
-    print("you are loss try again")        
+    print("you are loss try again!")        
