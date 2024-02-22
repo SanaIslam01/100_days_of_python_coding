@@ -1,46 +1,76 @@
-import tkinter as tk
-from tkinter import messagebox
+from tkinter import *
 
-class QuizApp:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Quiz App")
+myroot=Tk()
+myroot.geometry('1000x1000')
+myroot.configure(bg="red")
+myroot.title('Calculator')
+mf=Frame(myroot,width=700,height=700,bg='cyan')
+mf.propagate(0)
+mf.pack()
+         
 
-        self.questions = ["What is the capital of France?", "Who is the author of 'Harry Potter' series?", "What is the chemical symbol for water?"]
-        self.answers = ["Paris", "J.K. Rowling", "H2O"]
-        self.current_question_index = 0
+entry =Entry(mf, width=20)
+entry.place(x=100, y=100)
+         
+def click1(number):
+    entry.insert(END, str(number))
 
-        self.question_label = tk.Label(root, text="", font=("Arial", 14))
-        self.question_label.pack(pady=10)
+def click_dot():
+    entry.insert(END, ".")
 
-        self.answer_entry = tk.Entry(root, font=("Arial", 14))
-        self.answer_entry.pack(pady=10)
+def click_operation(operation):
+    entry.insert(END, operation)
+         
+def calculate():
+    try:
+        result = eval(entry.get())
+        entry.delete(0, END)
+        entry.insert(END, str(result))
+    except Exception as e:
+        entry.delete(0, END)
+        entry.insert(END, "Error")
 
-        self.submit_button = tk.Button(root, text="Submit", command=self.check_answer)
-        self.submit_button.pack(pady=10)
+# Number Button
+first=Button(mf,text='1',fg='green',command= lambda: click1(1))
+second=Button(mf,text='2',fg='green',command= lambda: click1(2))
+third=Button(mf,text='3',fg='green',command= lambda: click1(3))
+forth=Button(mf,text='4',fg='green',command= lambda: click1(4))
+fifth=Button(mf,text='5',fg='green',command= lambda: click1(5))
+sixth=Button(mf,text='6',fg='green',command= lambda: click1(6))
+seventh=Button(mf,text='7',fg='green',command= lambda: click1(7))
+eighth=Button(mf,text='8',fg='green',command= lambda: click1(8))
+ninth=Button(mf,text='9',fg='green',command= lambda: click1(9))
+zero=Button(mf,text='0',fg='green',command= lambda: click1(0))
+dot=Button(mf,text='.',fg='green',command= lambda: click1("."))
 
-        self.display_question()
+# Operations
+plus=Button(mf,text='+',fg='green',command= lambda: click1("+"))
+minus=Button(mf,text='-',fg='green',command= lambda: click1("-"))
+multip=Button(mf,text='x',fg='green',command= lambda: click1("*"))
+divid=Button(mf,text='/',fg='green',command= lambda: click1("/"))
+equal = Button(mf, text='=', fg='green', command=calculate)
+# number placements
+first.place(x=100, y=200)
+second.place(x=200, y=200)
+third.place(x=300, y=200)
 
-    def display_question(self):
-        if self.current_question_index < len(self.questions):
-            self.question_label.config(text=self.questions[self.current_question_index])
-        else:
-            messagebox.showinfo("Quiz Completed", "You have completed the quiz!")
-            self.root.destroy()
+forth.place(x=100, y=300)
+fifth.place(x=200, y=300)
+sixth.place(x=300, y=300)
 
-    def check_answer(self):
-        user_answer = self.answer_entry.get().strip()
-        correct_answer = self.answers[self.current_question_index]
+seventh.place(x=100, y=400)
+eighth.place(x=200, y=400)
+ninth.place(x=300, y=400)
 
-        if user_answer.lower() == correct_answer.lower():
-            messagebox.showinfo("Correct", "Your answer is correct!")
-        else:
-            messagebox.showerror("Incorrect", f"Sorry, the correct answer is {correct_answer}")
+zero.place(x=100, y=500)
+dot.place(x=200, y=500)
+equal.place(x=300, y=500)
+# operation placement
+plus.place(x=400, y=200)
+minus.place(x=400, y=300)
+multip.place(x=400, y=400)
+divid.place(x=400, y=500)
 
-        self.current_question_index += 1
-        self.answer_entry.delete(0, tk.END)
-        self.display_question()
-
-root = tk.Tk()
-app = QuizApp(root)
-root.mainloop()
+# scissors=Button(mf,text='Scissors',fg='green',command= lambda: click1(2))
+# scissors.pack()
+myroot.mainloop()
