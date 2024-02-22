@@ -1,5 +1,4 @@
-
-# quiz app
+# quiz app with tkinter
 import tkinter as tk
 from tkinter import messagebox
 
